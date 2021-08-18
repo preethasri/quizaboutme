@@ -4,6 +4,7 @@ const rl=readline.createInterface({
   input: process.stdin,
   output: process.stdout
 });
+var score=0;
 
 const quizquestions=[
   {
@@ -31,12 +32,17 @@ const quizquestions=[
      answer:"c"
   },
   {
-
     question:
-  `what is her favourite sweet?
-    a:laddu
-    b:rasagola
-    c:gulab jamun\n`,
+  `what is her favourite teacher?
+    a:tanay pratap sir
+    b:sumathi mam\n`,
+     answer:"a"
+  },
+  {
+  question:
+  `Is she likes Dogs?
+    a:yes
+    b:no\n`,
      answer:"b"
   },
 
@@ -54,11 +60,13 @@ function question()
     {
     console.log(chalk.green("right answer"))
     questionindex++
+    score++;
     serve()
     }
   else{
     console.log(chalk.red("wrong answer"))
     console.log("try again")
+    console.log("your score is:",score)
     question();
   }
 }) 
@@ -67,7 +75,7 @@ function serve()
 {
   if(isend())
   {
-    console.log("Thanks for playing")
+    console.log("Thanks for playing your final score is",score)
     rl.close()
 
   }
@@ -92,7 +100,9 @@ function isend()
   if(quizquestions.length==questionindex)
   {
     return true;
-
+     
   }
+
+ 
 }
 serve()
